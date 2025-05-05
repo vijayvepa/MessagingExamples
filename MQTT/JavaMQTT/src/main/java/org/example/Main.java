@@ -10,7 +10,8 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 public class Main {
   public static void main(String[] args) {
-    String mqttBroker = "tcp://test.mosquitto.org:1883";
+    //String mqttBroker = "tcp://test.mosquitto.org:1883";
+    String mqttBroker = "tcp://localhost:1883";
     String mqttTopic = "/test/topic";
     String username = "JavaClient";
     String password = "JavaPass";
@@ -52,7 +53,7 @@ public class Main {
 
       @Override
       public void messageArrived(final String s, final MqttMessage mqttMessage) throws Exception {
-        System.out.println("Message Arrived: " + s);
+        System.out.println("Message Arrived: " + s + ": " + new String(mqttMessage.getPayload()));
       }
 
       @Override
